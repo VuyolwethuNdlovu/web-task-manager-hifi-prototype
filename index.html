@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script type="text/javascript">
+
+    var attempt = 5;
+      function validate(){
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        var retrievedData = localStorage.getItem("loginDetails");
+        loginStore = JSON.parse(retrievedData);
+
+        for (i=0; i<loginStore.length; i++){
+          var userLogin = loginStore[i];
+          console.log(userLogin);
+          if (userLogin[0] == username && userLogin[1] == password){
+            passValue(userLogin);
+            alert("Login successfully");
+            window.location = "html/welcome.html";
+            return false;
+
+          }
+        }
+
+        attempt --;
+        alert("You have " + attempt + " left");
+
+
+        if (attempt == 0){
+          document.getElementById('username').disabled = true;
+          document.getElementById('password').disabled = true;
+          document.getElementById('submit').disabled = true;
+        }
+      }
+
+
+
+      function passValue(userLogin){
+        // var currentUser = document.getElementById('username').value;
+        var currentUser = userLogin[2];
+        localStorage.setItem("textvalue", currentUser);
+        console.log(localStorage);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="login">
+      <form action = "html/welcome.html">
+        <h2>Login</h2>
+        <input type="text" name="username" placeholder="Username: " id="username">
+        <input type="password" name="pass" placeholder="Password: " id="password">
+        <br><br>
+        <input type="button" value="Login" id="submit" onclick="validate()"></a> <br>
+        <br>
+        <div class="container">
+
+        </div><br><br>
+        Don't have an account?<a href="html/signup.html"> &nbsp; Sign Up </a>
+
+
+
+
+      </form>
+
+    </div>
+
+  </body>
+</html>

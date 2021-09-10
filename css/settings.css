@@ -1,0 +1,152 @@
+*{
+     padding: 0px;
+     margin: 0px;
+}
+ body{
+     font-family: Tahoma, Geneva, sans-serif;
+     color: #fff;
+     background: url(../images/login_background.jpeg);
+     background-size: cover;
+}
+ .nav{
+     background: white;
+     padding: 10px 0px;
+     text-align: left;
+     width: 100%
+}
+ .nav p{
+     text-align: right;
+     color: green;
+     display: inline-block;
+     padding: 10px 40px;
+     text-align: center;
+     font-size: 18px;
+     border: 1px dashed green;
+}
+ .nav li{
+     list-style-type: none;
+     display: inline-block;
+     padding: 10px 40px;
+     text-align: center;
+     border-left: 1px solid black;
+     color: black;
+     font-size: 18px;
+}
+ .nav .icon {
+     color: green;
+}
+ .nav .name{
+     color: green;
+}
+ .nav .search-container{
+     text-align: right;
+     color: black;
+     display: inline-block;
+     padding: 10px 40px;
+     text-align: center;
+     font-size: 18px;
+}
+ .container{
+     background: white;
+     padding: 40px;
+     width: 1250px;
+     height: 730px;
+     margin-top: 90px;
+     margin-left: 180px;
+     margin: 0 auto;
+}
+ .settingsContainer{
+     background: #ccc;
+     padding: 40px;
+     width: 50%;
+     height: 690px;
+     margin-left: 250px;
+     margin-right: 250px;
+}
+ #back {
+     font-size: 18px;
+}
+ .header h1{
+     display: inline;
+     text-align: center;
+     margin-left: 200px;
+     font-size: 22px;
+}
+ .header #backH1{
+     text-align: left;
+     margin-left: 10px;
+}
+ .header #closeWindow{
+     display: inline;
+     text-align: left;
+     font-size: 18px;
+}
+ .individualSetting{
+     width: 100%;
+     height:10%;
+}
+ .individualSetting p{
+     display: inline;
+     text-align: center;
+     color: black;
+     font-size: 18px;
+     font-weight: 800;
+}
+ #settingIcon{
+     text-align: left;
+     font-size: 40px;
+     color: green;
+     display: inline;
+     margin-right: 200px;
+}
+ #syncH1{
+     margin-left: 150px;
+}
+ .switch {
+     position: relative;
+     display: inline-block;
+     width: 60px;
+     height: 34px;
+}
+ .switch input {
+     opacity: 0;
+     width: 0;
+     height: 0;
+}
+ .slider {
+     position: absolute;
+     cursor: pointer;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #ccc;
+     -webkit-transition: .4s;
+     transition: .4s;
+}
+ .slider:before {
+     position: absolute;
+     content: "";
+     height: 34px;
+     width: 34px;
+     background-color: white;
+     -webkit-transition: .4s;
+     transition: .4s;
+}
+ input:checked + .slider {
+     background-color: green;
+}
+ input:focus + .slider {
+     box-shadow: 0 0 1px green;
+}
+ input:checked + .slider:before {
+     -webkit-transform: translateX(26px);
+     -ms-transform: translateX(26px);
+     transform: translateX(26px);
+}
+ .slider.round {
+     border-radius: 34px;
+}
+ .slider.round:before {
+     border-radius: 50%;
+}

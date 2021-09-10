@@ -1,0 +1,167 @@
+*{
+     padding: 0px;
+     margin: 0px;
+}
+ body{
+     font-family: Tahoma, Geneva, sans-serif;
+     color: #fff;
+     background: url(../images/login_background.jpeg);
+     background-size: cover;
+}
+ .nav{
+     background: white;
+     padding: 10px 0px;
+     text-align: left;
+     width: 100%
+}
+ .nav p{
+     text-align: right;
+     color: green;
+     display: inline-block;
+     padding: 10px 40px;
+     text-align: center;
+     font-size: 18px;
+     border: 1px dashed green;
+}
+ .nav li{
+     list-style-type: none;
+     display: inline-block;
+     padding: 10px 40px;
+     text-align: center;
+     border-left: 1px solid black;
+     color: black;
+     font-size: 18px;
+}
+ .nav .icon {
+     color: green;
+}
+ .nav .name{
+     color: green;
+}
+ .nav .search-container{
+     text-align: right;
+     color: black;
+     display: inline-block;
+     padding: 10px 40px;
+     text-align: center;
+     font-size: 18px;
+}
+ .container{
+     background: white;
+     padding: 40px;
+     width: 1250px;
+     height: 730px;
+     margin-top: 90px;
+     margin-left: 180px;
+     margin: 0 auto;
+}
+ .container p{
+     text-align: center;
+     color: black;
+     font-size: 48px;
+}
+ .tasksOverview{
+     background-color:#aaa;
+     float: left;
+     padding: 10px;
+     height: 400px;
+     width: 30%;
+     border: 20px solid white;
+}
+ .tasksOverview h2{
+     display: inline;
+     font-size: 20px;
+     font-weight: bold;
+     text-align: center;
+     margin-left: 30px;
+     margin-right: 60px;
+}
+ .tasksOverview #infoTasks{
+     display: inline;
+     text-align: right;
+     font-size: 20px;
+}
+ .tasksOverview ul{
+     list-style-type: "\0021" ;
+}
+ .tasksOverview li{
+     padding: 20px;
+     font-size: 18px;
+     color: black;
+}
+ .dailyquote{
+     float: left;
+     padding: 10px;
+     height: 300px;
+     width: 25%;
+     border: 20px solid white;
+}
+ .scheduleOverviewContainer{
+     float: left;
+     padding: 10px;
+     height: 500px;
+     width: 30%;
+     border: 5px solid white;
+}
+ .scheduleOverviewContainer h2{
+     display: inline;
+     font-size: 20px;
+     font-weight: bold;
+     text-align: center;
+     margin-left: 100px;
+     margin-right: 100px;
+}
+ .scheduleOverviewContainer #subheading{
+     display: inline;
+     font-size: 20px;
+     font-weight: bold;
+}
+ .scheduleOverviewContainer #schedule{
+     display: inline;
+     text-align: left;
+     font-size: 30px;
+}
+ .scheduleOverviewContainer #enlarge{
+     display: inline;
+     text-align: right;
+     font-size: 20px;
+}
+ .scheduleOverview h3{
+     display: inline;
+     font-size: 16px;
+     text-align: left;
+     margin-left: 10px;
+     margin-right: 10px;
+}
+ .scheduleOverview p{
+     display: inline;
+     font-size: 14px;
+     font-style: italic;
+     text-align: right;
+     margin-left: 70px;
+}
+ .row:after {
+     content: "";
+     display: table;
+     clear: both;
+}
+ .container .dailyquote #quote{
+     font-size: 18px;
+}
+ .container .dailyquote #reference{
+     text-align: right;
+     font-size: 12px;
+}
+ #popUpInfo{
+     display: block;
+     width: 250px;
+     margin: 100px auto 0;
+     display: none;
+     bottom: 50%;
+     left: 15%;
+     background: green;
+     position: fixed;
+}
+ #popUpInfo #closeWindow{
+     text-align: right;
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="../css/welcome.css">
+    <script src="https://kit.fontawesome.com/4a96f23490.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="welcome.html">
+                    <div class="icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Home">Home</div>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.html">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Calendar">Calendar</div>
+                </a>
+            </li>
+            <li>
+                <a href="tasks.html">
+                    <div class="icon">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Tasks">Tasks</div>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                    <div class="icon">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Settings">Settings</div>
+                </a>
+            </li>
+            <p id="date">Date</p>
+
+            <script type="text/javascript">
+                document.getElementById("date").innerHTML = functionDate();
+
+        function functionDate() {
+        var d = new Date(),
+            minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+            hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+            ampm = d.getHours() >= 12 ? 'pm' : 'am',
+            months = ['January','February','March','April','May','June','July','August','September','October','November','December'],
+            days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        return days[d.getDay()]+' '+d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear()+' || '+hours+':'+minutes;
+
+        }
+            </script>
+
+            <div class="search-container">
+                <form>
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <li>
+                <a href="../index.html">
+                    <div class="icon">
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Sign Out">Sign Out</div>
+                </a>
+            </li>
+
+
+
+        </ul>
+
+    </div>
+    <div class="container">
+
+        <p id="greeting">greeting
+            <span id="result"></span>
+        </p>
+        <script type="text/javascript">
+            document.getElementById('greeting').innerHTML= greetingmsg();
+
+            function greetingmsg() {
+            var d = new Date(),
+                minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+                hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+                ampm = d.getHours() >= 12 ? 'pm' : 'am',
+                months = ['January','February','March','April','May','June','July','August','September','October','November','December'],
+                days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            var name = document.getElementById('result').innerHTML=localStorage.getItem("textvalue");
+
+            if ((d.getHours() >= 17) && (ampm == "pm")){
+              return "Good Evening " + name;
+            } else if ((d.getHours() < 17) && (ampm == "pm")) {
+              return "Good Afternoon " + name;
+            } else {
+              return "Good Morning " + name;
+            }
+          }
+        </script>
+
+        <div class="row">
+
+            <div class="tasksOverview">
+                <div class="headerof Panel">
+                    <i id="tasks" class="fas fa-tasks" style="font-size: 18px;"></i>
+                    <h2>Tasks to be Completed: </h2>
+                    <i class="fas fa-info-circle" id="infoTasks" onclick="openForm();"></i>
+                    <br>
+                    <div id="popUpInfo">
+                        <i id="closeWindow" class="fas fa-times-circle" onclick="closeForm()"></i>
+                        <p style="font-size: 18px;">When you add a task, the uncompleted tasks would be displayed here.</p>
+                    </div>
+
+                    <script type="text/javascript">
+                        function openForm(){
+                          document.getElementById("popUpInfo").style.display = "block";
+                        }
+
+                        function closeForm() {
+                          document.getElementById("popUpInfo").style.display = "none";
+                        }
+                    </script>
+
+                </div>
+
+                <br><br>
+
+                <div id="uncompleteTasks">
+
+                    <ul id=t odo>
+                    </ul>
+
+                </div>
+
+                <script type="text/javascript">
+                    var tasksTodo = document.getElementById('todo');
+
+
+                    var saved = JSON.parse(localStorage.getItem('tasksIncompleted'));
+                    console.log(saved.length);
+
+                    for (i=0; i<saved.length; i++){
+                      var taskItem=document.createElement("li");
+                      taskItem.innerText=saved[i];
+                      taskItem.style.color = "red";
+                      document.getElementById('todo').appendChild(taskItem);
+                      console.log(taskItem);
+
+                    }
+                </script>
+
+            </div>
+
+
+
+            <div class="dailyquote" style="background-color:green;">
+
+                <p>
+                    <i class="fas fa-quote-left "></i>
+                    <i id="quote"></i>
+                    <i class="fas fa-quote-right "></i>
+                </p>
+
+                <p id="reference">Quote Reference</p>
+
+                <script type="text/javascript">
+                    document.getElementById('reference').innerHTML= retreiveReference();
+                      function retreiveReference() {
+                      var d = new Date(),
+                          minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+                          hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+                          ampm = d.getHours() >= 12 ? 'pm' : 'am',
+                          months = ['January','February','March','April','May','June','July','August','September','October','November','December'],
+                          days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+                      var reference1 = "Woodrow Wilson";
+                      var reference2 = "Brian Tracy";
+                      var reference3 = "Travis Bradberry";
+                      var reference4 = "Dale Carnegie";
+                      var reference5 = "Henry Ford";
+                      var reference6 = "Vince Lombardi";
+                      var reference7 = "Peter McWilliams";
+
+
+                      if (days[d.getDay()] == 'Sunday'){
+
+                        return reference1;
+
+                      } else if (days[d.getDay()] == 'Monday'){
+                          return reference2;
+                      } else if (days[d.getDay()] == 'Tuesday'){
+                            return reference3;
+                      }else if (days[d.getDay()] == 'Wednesday'){
+                            return reference4;
+                      }else if (days[d.getDay()] == 'Thursday'){
+                            return reference5;
+                      }else if (days[d.getDay()] == 'Friday'){
+                            return reference6;
+                      }else if (days[d.getDay()] == 'Saturday'){
+                            return reference7;
+                      }
+                    }
+                </script>
+
+
+
+
+
+                <script type="text/javascript">
+                    document.getElementById('quote').innerHTML= retreiveQuote();
+                      function retreiveQuote() {
+                      var d = new Date(),
+                          minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+                          hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+                          ampm = d.getHours() >= 12 ? 'pm' : 'am',
+                          months = ['January','February','March','April','May','June','July','August','September','October','November','December'],
+                          days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+                      var quote1 = "You are not here merely to make a living. You are here in order to enable the world to live more amply, with greater vision, with a finer spirit of hope and achievement. You are here to enrich the world, and you impoverish yourself if you forget the errand.";
+                      var quote2 = "Move out of your comfort zone. You can only grow if you are willing to feel awkward and uncomfortable when you try something new.";
+                      var quote3 = "Grit is that ‘extra something' that separates the most successful people from the rest. It's the passion, perseverance, and stamina that we must channel in order to stick with our dreams until they become a reality.";
+                      var quote4 = "Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.";
+                      var quote5 = "Obstacles are those frightful things you see when you take your eyes off your goal.";
+                      var quote6 = "The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack of will.";
+                      var quote7 = "Be willing to be uncomfortable. Be comfortable being uncomfortable. It may get tough, but it’s a small price to pay for living a dream";
+
+
+                      if (days[d.getDay()] == 'Sunday'){
+
+                        return quote1;
+
+                      } else if (days[d.getDay()] == 'Monday'){
+                        return quote2;
+                      }else if (days[d.getDay()] == 'Tuesday'){
+                        return quote3;
+                      }else if (days[d.getDay()] == 'Wednesday'){
+                        return quote4;
+                      }else if (days[d.getDay()] == 'Thursday'){
+                        return quote5;
+                      }else if (days[d.getDay()] == 'Friday'){
+                        return quote6;
+                      }else if (days[d.getDay()] == 'Saturday'){
+                        return quote7;
+                      }
+
+                    }
+                </script>
+
+
+
+            </div>
+            <div class="scheduleOverviewContainer" style="background-color:#ccc;">
+                <div class="headerofPanel">
+                    <i id="schedule" class="fas fa-calendar-day"></i>
+                    <h2 id="currentDate"></h2>
+
+                    <script type="text/javascript">
+                        n =  new Date();
+                        y = n.getFullYear();
+                        m = n.getMonth() + 1;
+                        if (m >10){
+                          m='0'+m;
+                        }
+                        d = n.getDate();
+                        if (d < 10){
+                          d='0'+d;
+                        }
+                        document.getElementById("currentDate").innerHTML = d + "/" + m + "/" + y;
+                    </script>
+                    <button id="enlargeSchedule" type="button"><i id="enlarge" class="fas fa-expand-alt"></i></button>
+
+                    <script type="text/javascript">
+                        document.getElementById("enlargeSchedule").onclick = function () {
+                            location.href = "enlargedSchedule.html";
+                          };
+                    </script>
+
+                </div>
+                <br>
+                <h3 style="text-align: center; font-size: 20px;">Overview for Today: </h3>
+                <br>
+
+                <div class="scheduleOverview">
+
+                    <h3>07:15</h3>
+                    <p>Wake up the boys</p>
+
+                    <br><br><br>
+
+
+                    <h3>08:00</h3>
+                    <p>Drop off the boys</p>
+
+                    <br><br><br>
+
+                    <h3>10:00</h3>
+                    <p>CO2104 Lecture</p>
+
+                    <br><br><br>
+
+                    <h3>12:00</h3>
+                    <p> CO2103 Lecture</p>
+
+                    <br><br><br>
+
+                    <h3>15:00</h3>
+                    <p>Work</p>
+
+                    <br><br><br>
+
+                    <h3>19:00</h3>
+                    <p>Drinks with Chris</p>
+
+                    <br>
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/signup.css">
+    <title>Sign Up</title>
+
+    <script type="text/javascript">
+        var loginDetails = [];
+
+        function redirect(){
+
+          window.location = "../index.html";
+
+        }
+            function signUp(){
+              var userDetails=[];
+
+
+                    var password = document.getElementById('password').value;
+                    var verifyPassword = document.getElementById('verifyPassword').value;
+
+                    if (verifyPassword != password){
+                      alert("Password does not match");
+                    } else {
+                      loginDetails.push(userDetails);
+                      console.log(loginDetails);
+                      var username = document.getElementById('username').value;
+                      userDetails.push(username);
+                      console.log(loginDetails);
+
+                      var password = document.getElementById('password').value;
+                      userDetails.push(password);
+                      console.log(loginDetails);
+
+                      var firstname = document.getElementById('firstname').value;
+                      userDetails.push(firstname);
+                      console.log(loginDetails);
+
+                      localStorage.setItem("loginDetails", JSON.stringify(loginDetails));
+                      redirect();
+
+                    }
+
+
+
+
+
+
+                    }
+    </script>
+
+
+
+</head>
+
+<body>
+
+
+    <div class="signup">
+        <form>
+            <h2 style="color:#fff">Sign Up</h2>
+            <input id="username" type="text" name="username" placeholder="User name" required>
+            <br><br>
+            <input id="firstname" type="text" name="firstname" placeholder="First name" required>
+            <br><br>
+            <input id="lastname" type="text" name="lastname" placeholder="Last name">
+            <br><br>
+            <input id="password" type="password" name="password" placeholder="Password" required>
+            <br><br>
+            <input id="verifyPassword" type="password" name="password" placeholder="Confirm Password" required>
+            <br><br>
+            <input type="text" name="email" placeholder="Email Address">
+            <br><br>
+            <input type="button" name="" value="Sign Up" onclick="signUp()">
+            <br><br> Already have an account <a href="../index.html" id="redirect">&nbsp; Log In</a>
+
+
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

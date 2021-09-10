@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="../css/calendar.css">
+    <script src="https://kit.fontawesome.com/4a96f23490.js" crossorigin="anonymous"></script>
+    <script src="../script/calendar.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="welcome.html">
+                    <div class="icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Home">Home</div>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.html">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Calendar">Calendar</div>
+                </a>
+            </li>
+            <li>
+                <a href="tasks.html">
+                    <div class="icon">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Tasks">Tasks</div>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                    <div class="icon">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Settings">Settings</div>
+                </a>
+            </li>
+            <p id="date">Date</p>
+
+            <script type="text/javascript">
+                document.getElementById("date").innerHTML = functionDate();
+
+                function functionDate() {
+                    var d = new Date(),
+                        minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(),
+                        hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(),
+                        months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    return days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear() + ' || ' + hours + ':' + minutes;
+
+                }
+            </script>
+
+            <div class="search-container">
+                <form>
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <li>
+                <a href="../index.html">
+                    <div class="icon">
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Sign Out">Sign Out</div>
+                </a>
+            </li>
+
+
+
+        </ul>
+
+    </div>
+
+
+    <div class="container">
+        <div id="calendarContainer">
+            <div id="calendar-header">
+                <i id="previous" class="fas fa-chevron-left"></i>
+                <span id="currentMonth"></span>
+                <i id="next" class="fas fa-chevron-right"></i>
+
+                <div class="options">
+                    <i id="add" class="fas fa-plus"></i>
+                    <i id="edit" class="fas fa-edit"></i>
+                    <i id="Settings" class="fas fa-cog"></i>
+                </div>
+
+
+            </div>
+            <div id="calendar">
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

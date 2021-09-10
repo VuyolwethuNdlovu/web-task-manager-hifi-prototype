@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Settings</title>
+
+    <link rel="stylesheet" href="../css/settings.css">
+    <script src="https://kit.fontawesome.com/4a96f23490.js" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="welcome.html">
+                    <div class="icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Home">Home</div>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.html">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Calendar">Calendar</div>
+                </a>
+            </li>
+            <li>
+                <a href="tasks.html">
+                    <div class="icon">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Tasks">Tasks</div>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                    <div class="icon">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Settings">Settings</div>
+                </a>
+            </li>
+            <p id="date">Date</p>
+
+            <script type="text/javascript">
+                document.getElementById("date").innerHTML = functionDate();
+
+                function functionDate() {
+                    var d = new Date(),
+                        minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(),
+                        hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(),
+                        ampm = d.getHours() >= 12 ? 'pm' : 'am',
+                        months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    return days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear() + ' || ' + hours + ':' + minutes;
+
+                }
+            </script>
+
+            <div class="search-container">
+                <form>
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <li>
+                <a href="../index.html">
+                    <div class="icon">
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Sign Out">Sign Out</div>
+                </a>
+            </li>
+
+
+
+        </ul>
+
+    </div>
+    <div class="container">
+
+        <div class="settingsContainer">
+            <div class="header">
+                <i id="closeWindow" class="fas fa-times-circle"></i>
+
+                <script type="text/javascript">
+                    document.getElementById("closeWindow").onclick = function() {
+                        location.href = "welcome.html";
+                    };
+                </script>
+                <h1>SETTINGS</h1>
+                <br><br>
+                <hr>
+            </div>
+            <br>
+            <div class="individualSetting" id="profile">
+                <i id="settingIcon" class="fas fa-users-cog"></i></a>
+                <p>User Profile<p>
+
+            </div>
+            <br>
+            <hr>
+            <br>
+
+            <div class="individualSetting" id="notifications">
+                <i id="settingIcon" class="far fa-bell"></i>
+                <p>Notifications</p>
+
+            </div>
+            <br>
+            <hr>
+            <br>
+
+            <div class="individualSetting" id="accessibility">
+                <i id="settingIcon" class="fas fa-font"></i></a>
+                <p>Accessibility<p>
+
+            </div>
+            <br>
+            <hr>
+            <br>
+
+            <div class="individualSetting" id="theme">
+                <i id="settingIcon" class="fas fa-palette"></i></a>
+                <p>Theme<p>
+
+            </div>
+            <br>
+            <hr>
+            <br>
+
+            <div class="individualSetting" id="syncOutlook">
+                <label id="toogle" class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <p id="syncH1">Sync with Outlook</p>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+
+
+
+            <div class="individualSetting" id="help">
+                <i id="settingIcon" class="fas fa-question"></i>
+                <p>Help</p>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>

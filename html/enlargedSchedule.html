@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Schedule for Today</title>
+    <link rel="stylesheet" href="../css/enlargedSchedule.css">
+    <script src="https://kit.fontawesome.com/4a96f23490.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="welcome.html">
+                    <div class="icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Home">Home</div>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.html">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Calendar">Calendar</div>
+                </a>
+            </li>
+            <li>
+                <a href="tasks.html">
+                    <div class="icon">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Tasks">Tasks</div>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                    <div class="icon">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Settings">Settings</div>
+                </a>
+            </li>
+            <p id="date">Date</p>
+
+            <script type="text/javascript">
+                document.getElementById("date").innerHTML = functionDate();
+
+                function functionDate() {
+                    var d = new Date(),
+                        minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(),
+                        hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(),
+                        months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    return days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear() + ' || ' + hours + ':' + minutes;
+                }
+            </script>
+
+            <div class="search-container">
+                <form>
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <li>
+                <a href="../index.html">
+                    <div class="icon">
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Sign Out">Sign Out</div>
+                </a>
+            </li>
+
+
+
+        </ul>
+
+
+    </div>
+    <div class="container ">
+
+
+        <div class="enlargedScheduleOverviewContainer">
+            <i id="closeWindow" class="fas fa-times-circle"></i>
+
+            <script type="text/javascript">
+                document.getElementById("closeWindow").onclick = function() {
+                    location.href = "welcome.html";
+                };
+            </script>
+            <i id="schedule" class="fas fa-clock"></i>
+
+            <h2>Schedule for Today</h2>
+
+            <br><br><br>
+
+            <div class="grid">
+                <table>
+                    <thead>
+                        <th scope="col">Time</th>
+                        <th scope="col" id="onlyDate">Tuesday 21 April 2020</th>
+
+                        <script type="text/javascript">
+                            document.getElementById("onlyDate").innerHTML = functionDate();
+
+
+                            function functionDate() {
+                                var d = new Date(),
+                                    minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(),
+                                    hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(),
+                                    ampm = d.getHours() >= 12 ? 'pm' : 'am',
+                                    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                                    days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                                return days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+
+                            }
+                        </script>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">07:00</th>
+                            <td><span>Wake Up the boys and get them ready for school</span></td>
+
+                        </tr>
+                        <tr class="bg-yellow">
+                            <th scope="row">08:00</th>
+                            <td><span>Drop the boys off at school</span></td>
+
+                        </tr>
+                        <tr class="bg-green">
+                            <th scope="row">09:00</th>
+                            <td><span></span></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">10:00</th>
+                            <td data-cell>CO2104 Lecture</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">11:00</th>
+                            <td data-cell></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">12:00</th>
+                            <td rowspan="2"><span>CO2103 Lecture</span></td>
+
+                        </tr>
+                        <tr class="bg-green">
+                            <th scope="row">13:00</th>
+
+
+                        </tr>
+                        <tr>
+                            <th scope="row">14:00</th>
+                            <td data-cell></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">15:00</th>
+                            <td rowspan="3.5" data-cell>Work</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">16:00</th>
+
+                        </tr>
+                        <tr class="bg-green">
+                            <th scope="row">17:00</th>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">18:00</th>
+                            <td data-cell></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">19:00</th>
+                            <td rowspan="2"><span>Drinks with Chris</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">20:00</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">21:00</th>
+                            <td data-cell></td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+            <div class="optionsBar">
+
+                <a href="#"><i class="fas fa-plus"></i> Add New Event</a>
+                <a href="#"><i class="fas fa-edit"></i> Edit Event</a>
+                <a href="#"><i class="fas fa-trash-alt"></i> Delete Event</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+</body>
+
+</html>

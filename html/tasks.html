@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="../css/tasks.css">
+    <script src="https://kit.fontawesome.com/4a96f23490.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="welcome.html">
+                    <div class="icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Home">Home</div>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.html">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Calendar">Calendar</div>
+                </a>
+            </li>
+            <li>
+                <a href="tasks.html">
+                    <div class="icon">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Tasks">Tasks</div>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                    <div class="icon">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Settings">Settings</div>
+                </a>
+            </li>
+            <p id="date">Date</p>
+
+            <script type="text/javascript">
+                document.getElementById("date").innerHTML = functionDate();
+
+        function functionDate() {
+        var d = new Date(),
+            minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+            hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+            months = ['January','February','March','April','May','June','July','August','September','October','November','December'],
+            days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        return days[d.getDay()]+' '+d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear()+' || '+hours+':'+minutes;
+
+        }
+            </script>
+
+            <div class="search-container">
+                <form>
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <li>
+                <a href="../index.html">
+                    <div class="icon">
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="name" data-text="Sign Out">Sign Out</div>
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="container">
+
+        <div class="header">
+            <h2 id="title">TASKS</h2>
+            <i id="addIcon" class="fas fa-plus" onclick="openForm()"></i>
+            <i id="editIcon" class="fas fa-edit"></i>
+
+            <i id="settingsIcon" class="fas fa-cog"></i>
+
+        </div>
+
+        <br><br><br>
+
+
+        <div class="addTaskContainer">
+
+            <div id="tid"></div>
+
+
+            <div id="popUpAdd">
+                <i id="closeWindow" class="fas fa-times-circle" onclick="closeForm()"></i>
+                <form id="taskAddForm">
+                    <p>
+                        <label for="new-task">Add Task</label>
+                        <input id="new-task" type="text" placeholder="Type Task...">
+                        <br><br><br>
+                        <input id="category" type="text" placeholder="Enter Category...">
+
+                        <br><br>
+                        <input type="button" value="Submit" id="submit">
+                    </p>
+
+                </form>
+
+                <script type="text/javascript">
+                    function openForm(){
+                      document.getElementById("popUpAdd").style.display = "block";
+                    }
+
+                    function closeForm() {
+                      document.getElementById("popUpAdd").style.display = "none";
+                    }
+                </script>
+
+            </div>
+
+
+
+        </div>
+
+
+        <script type="text/javascript" src="../script/tasks.js"></script>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
